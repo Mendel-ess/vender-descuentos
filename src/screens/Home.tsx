@@ -1,3 +1,4 @@
+import { Product } from "../components/product"
 
 
 export const Home = () => {
@@ -7,6 +8,7 @@ export const Home = () => {
             <h1 className="text-6xl font-medium text-center">
             Nuevas promociones disponibles
             </h1>
+            <Product />
         </div>
     )
 }

@@ -30,7 +30,7 @@ const Products: ProductsProps[] = [
         price: 6954527,
         discount: 13,
         discountPrice: 6026638,
-        description: "El MSI Prestige 13 AI Evo A1MG-024ES es un portátil premium diseñado para profesionales que buscan rendimiento y portabilidad. Con un diseño elegante y ultraligero, este equipo ofrece un equilibrio perfecto entre potencia y estilo. Equipado con los últimos procesadores Intel Evo, garantiza un rendimiento fluido y eficiente, ideal para multitareas, edición de contenido y aplicaciones exigentes. Su pantalla de alta resolución proporciona colores vivos y detalles nítidos, mientras que su batería de larga duración asegura productividad durante todo el día. Perfecto para quienes valoran la movilidad sin comprometer el rendimiento.",
+        description: "El MSI Prestige 13 AI Evo A1MG-024ES es un portátil premium diseñado para profesionales que buscan rendimiento y portabilidad. Con un diseño elegante y ultraligero, este equipo ofrece un equilibrio perfecto entre potencia y estilo. Equipado con los últimos procesadores Intel Evo, garantiza un rendimiento fluido y eficiente, ideal para multitareas, edición de contenido y aplicaciones exigentes.",
         image: "https://es-store.msi.com/cdn/shop/files/MSI_NB_Prestige13_Stellar_Gray_photo01_89908746-e0ca-408b-814f-8550e0ded3b2_669x669.png?v=1724945762"
     },
     {
@@ -44,8 +44,29 @@ const Products: ProductsProps[] = [
 ]
 export const Product = () => {
     return ( 
-        <div>
-
+        <div className="flex flex-col items-center m-4">
+            {
+                Products.map((product) => (
+                        <div className="w-full h-80 bg-gray-200 m-8 rounded-xl shadow-xl flex flex-row">
+                            <img src={product.image} alt={product.name} className="flex justify-start transform translate-y-px w-64 h-64 m-6" />
+                            <div className="flex flex-col">
+                                <h1 className="text-xl font-medium text-start mt-4  ">{product.name}</h1>
+                                <p className="text-md font-medium text-start mt-2">{product.description}</p>
+                                <div className="mt-3 bg-red-500 w-16 h-8 rounded-full flex items-center justify-center">
+                                    <p className="text-lg text-white">{product.discount}%</p>
+                                </div>
+                                <div className="flex flex-row mt-2 items-center">
+                                    <p className="text-xl font-bold text-start">Precio antes: $</p>
+                                    <p className="text-xl text-gray-500 font-bold line-through ml-1"> {product.price}</p>
+                                </div>
+                                <div className="flex flex-row mt-2 items-center">
+                                    <p className="text-xl font-bold text-start">Precio ahora: $</p>
+                                    <p className="text-xl text-black font-bold ml-1"> {product.discountPrice}</p>
+                                </div>
+                            </div>
+                        </div>
+                ))
+            }
         </div>
     );
 }
