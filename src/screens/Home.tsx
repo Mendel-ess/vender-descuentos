@@ -1,4 +1,4 @@
-import { Product } from "../components/product";
+import { Product } from "../components/product/Product";
 
 
 export const Home = () => {
